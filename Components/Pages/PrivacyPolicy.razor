@@ -1,0 +1,77 @@
+﻿@page "/privacy-policy"
+@using Microsoft.AspNetCore.SignalR.Client
+@inject NavigationManager Navigation
+@inject HubConnection HubConnection
+
+<div class="container">
+    @if (!string.IsNullOrEmpty(notificationMessage))
+    {
+        <div class="alert alert-info">
+            @notificationMessage
+        </div>
+    }
+    <h1>Privacy Policy</h1>
+
+    <p>
+        This Privacy Policy describes how <strong>QuestZenith</strong> ("We") collects, uses, and protects the personal information you provide on our website and through our services related to task management, deadline reminders, user authentication, customization, and motivational integration.
+    </p>
+
+    <h2>Information We Collect</h2>
+    <ul>
+        <li>Personal Information: When you register for an account, we may collect your name and email address to create and manage your account.</li>
+        <li>Task-related Data: When you use our task management features, you may enter task descriptions, deadlines, and other related information.</li>
+        <li>User Preferences: We may collect information about your preferences, such as your choice between dark mode and light mode.</li>
+    </ul>
+
+    <h2>How We Use Your Information</h2>
+    <ul>
+        <li>Providing and improving our task management and deadline reminder services.</li>
+        <li>Customizing your user experience based on your preferences.</li>
+        <li>Securely authenticating you for accessing task-related data across devices.</li>
+        <li>Sending notifications for task deadlines or updates.</li>
+        <li>Displaying daily inspirational quotes in a dedicated section.</li>
+    </ul>
+
+    <h2>Data Security</h2>
+    <p>
+        We take the security of your data seriously and implement measures to protect it, including encryption, regular security assessments, and limited access to authorized personnel or systems.
+    </p>
+
+    <h2>User Rights</h2>
+    <p>
+        You have the right to access, update, or delete your task-related data. You can also unsubscribe from notifications or delete your account at any time. For assistance with these actions, please contact our support team.
+    </p>
+
+    <h2>Third-party Integrations</h2>
+    <p>
+        We may integrate with third-party services for task management, authentication, or motivational content. Your data may be shared with or accessed by these third parties in accordance with their privacy policies.
+    </p>
+
+    <h2>Updates to the Privacy Policy</h2>
+    <p>
+        We may update this Privacy Policy from time to time. We will notify you of any changes by posting the new Privacy Policy on this page.
+    </p>
+</div>
+
+<footer class="footer">
+    <div class="container">
+        <p>&copy; 2024 QuestZenith. All rights are reserved.</p>
+    </div>
+</footer>
+@code {
+    private string notificationMessage = string.Empty;
+
+    protected override async Task OnInitializedAsync()
+    {
+        var currentTime = DateTime.Now;
+
+        // Check if the current time is:
+  
+        // Between 1 PM and 2 PM,
+        if (currentTime.Hour >= 13 && currentTime.Hour < 14)
+        {
+            // Redirect to a different page (e.g., homepage or an error page)
+            Navigation.NavigateTo("/home");
+        }
+    }
+}

@@ -1,0 +1,190 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\Madina pc\\source\\repos\\BlazorApp1\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{70421456-30C2-4BF5-9ACD-D476AC33F01A}|BlazorApp1.csproj|c:\\users\\madina pc\\source\\repos\\blazorapp1\\components\\pages\\component.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{70421456-30C2-4BF5-9ACD-D476AC33F01A}|BlazorApp1.csproj|solutionrelative:components\\pages\\component.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{70421456-30C2-4BF5-9ACD-D476AC33F01A}|BlazorApp1.csproj|c:\\users\\madina pc\\source\\repos\\blazorapp1\\components\\pages\\home.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{70421456-30C2-4BF5-9ACD-D476AC33F01A}|BlazorApp1.csproj|solutionrelative:components\\pages\\home.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{70421456-30C2-4BF5-9ACD-D476AC33F01A}|BlazorApp1.csproj|c:\\users\\madina pc\\source\\repos\\blazorapp1\\models\\notificationhub.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{70421456-30C2-4BF5-9ACD-D476AC33F01A}|BlazorApp1.csproj|solutionrelative:models\\notificationhub.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{70421456-30C2-4BF5-9ACD-D476AC33F01A}|BlazorApp1.csproj|c:\\users\\madina pc\\source\\repos\\blazorapp1\\components\\pages\\component1.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{70421456-30C2-4BF5-9ACD-D476AC33F01A}|BlazorApp1.csproj|solutionrelative:components\\pages\\component1.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{70421456-30C2-4BF5-9ACD-D476AC33F01A}|BlazorApp1.csproj|c:\\users\\madina pc\\source\\repos\\blazorapp1\\components\\pages\\privacypolicy.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{70421456-30C2-4BF5-9ACD-D476AC33F01A}|BlazorApp1.csproj|solutionrelative:components\\pages\\privacypolicy.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{70421456-30C2-4BF5-9ACD-D476AC33F01A}|BlazorApp1.csproj|c:\\users\\madina pc\\source\\repos\\blazorapp1\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{70421456-30C2-4BF5-9ACD-D476AC33F01A}|BlazorApp1.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{70421456-30C2-4BF5-9ACD-D476AC33F01A}|BlazorApp1.csproj|c:\\users\\madina pc\\source\\repos\\blazorapp1\\components\\pages\\alltasks.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{70421456-30C2-4BF5-9ACD-D476AC33F01A}|BlazorApp1.csproj|solutionrelative:components\\pages\\alltasks.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{70421456-30C2-4BF5-9ACD-D476AC33F01A}|BlazorApp1.csproj|c:\\users\\madina pc\\source\\repos\\blazorapp1\\components\\layout\\sidebar.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{70421456-30C2-4BF5-9ACD-D476AC33F01A}|BlazorApp1.csproj|solutionrelative:components\\layout\\sidebar.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{70421456-30C2-4BF5-9ACD-D476AC33F01A}|BlazorApp1.csproj|c:\\users\\madina pc\\source\\repos\\blazorapp1\\components\\layout\\mainlayout.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{70421456-30C2-4BF5-9ACD-D476AC33F01A}|BlazorApp1.csproj|solutionrelative:components\\layout\\mainlayout.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{70421456-30C2-4BF5-9ACD-D476AC33F01A}|BlazorApp1.csproj|c:\\users\\madina pc\\source\\repos\\blazorapp1\\components\\pages\\completetask.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{70421456-30C2-4BF5-9ACD-D476AC33F01A}|BlazorApp1.csproj|solutionrelative:components\\pages\\completetask.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Component.razor",
+              "DocumentMoniker": "C:\\Users\\Madina pc\\source\\repos\\BlazorApp1\\Components\\Pages\\Component.razor",
+              "RelativeDocumentMoniker": "Components\\Pages\\Component.razor",
+              "ToolTip": "C:\\Users\\Madina pc\\source\\repos\\BlazorApp1\\Components\\Pages\\Component.razor",
+              "RelativeToolTip": "Components\\Pages\\Component.razor",
+              "ViewState": "AgIAACUAAAAAAAAAAAAAADMAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-01-06T18:50:49.248Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Home.razor",
+              "DocumentMoniker": "C:\\Users\\Madina pc\\source\\repos\\BlazorApp1\\Components\\Pages\\Home.razor",
+              "RelativeDocumentMoniker": "Components\\Pages\\Home.razor",
+              "ToolTip": "C:\\Users\\Madina pc\\source\\repos\\BlazorApp1\\Components\\Pages\\Home.razor",
+              "RelativeToolTip": "Components\\Pages\\Home.razor",
+              "ViewState": "AgIAAEIAAAAAAAAAAAAwvQAAAAAIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-01-06T18:41:38.011Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\Madina pc\\source\\repos\\BlazorApp1\\Program.cs",
+              "RelativeDocumentMoniker": "Program.cs",
+              "ToolTip": "C:\\Users\\Madina pc\\source\\repos\\BlazorApp1\\Program.cs",
+              "RelativeToolTip": "Program.cs",
+              "ViewState": "AgIAAC0AAACAZmZmZmYkwDgAAAADAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-06T18:19:56.017Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "NotificationHub.cs",
+              "DocumentMoniker": "C:\\Users\\Madina pc\\source\\repos\\BlazorApp1\\Models\\NotificationHub.cs",
+              "RelativeDocumentMoniker": "Models\\NotificationHub.cs",
+              "ToolTip": "C:\\Users\\Madina pc\\source\\repos\\BlazorApp1\\Models\\NotificationHub.cs",
+              "RelativeToolTip": "Models\\NotificationHub.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-06T18:19:12.143Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "PrivacyPolicy.razor",
+              "DocumentMoniker": "C:\\Users\\Madina pc\\source\\repos\\BlazorApp1\\Components\\Pages\\PrivacyPolicy.razor",
+              "RelativeDocumentMoniker": "Components\\Pages\\PrivacyPolicy.razor",
+              "ToolTip": "C:\\Users\\Madina pc\\source\\repos\\BlazorApp1\\Components\\Pages\\PrivacyPolicy.razor",
+              "RelativeToolTip": "Components\\Pages\\PrivacyPolicy.razor",
+              "ViewState": "AgIAADgAAAAAAAAAAAAwwEYAAAA6AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-01-06T18:06:59.311Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Component1.razor",
+              "DocumentMoniker": "C:\\Users\\Madina pc\\source\\repos\\BlazorApp1\\Components\\Pages\\Component1.razor",
+              "RelativeDocumentMoniker": "Components\\Pages\\Component1.razor",
+              "ToolTip": "C:\\Users\\Madina pc\\source\\repos\\BlazorApp1\\Components\\Pages\\Component1.razor",
+              "RelativeToolTip": "Components\\Pages\\Component1.razor",
+              "ViewState": "AgIAAFMAAAAAAAAAAAAAAFMAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-01-06T17:18:29.293Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "CompleteTask.razor",
+              "DocumentMoniker": "C:\\Users\\Madina pc\\source\\repos\\BlazorApp1\\Components\\Pages\\CompleteTask.razor",
+              "RelativeDocumentMoniker": "Components\\Pages\\CompleteTask.razor",
+              "ToolTip": "C:\\Users\\Madina pc\\source\\repos\\BlazorApp1\\Components\\Pages\\CompleteTask.razor",
+              "RelativeToolTip": "Components\\Pages\\CompleteTask.razor",
+              "ViewState": "AgIAADUAAAAAAAAAAAAQwE8AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-01-06T17:18:25.307Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "AllTasks.razor",
+              "DocumentMoniker": "C:\\Users\\Madina pc\\source\\repos\\BlazorApp1\\Components\\Pages\\AllTasks.razor",
+              "RelativeDocumentMoniker": "Components\\Pages\\AllTasks.razor",
+              "ToolTip": "C:\\Users\\Madina pc\\source\\repos\\BlazorApp1\\Components\\Pages\\AllTasks.razor",
+              "RelativeToolTip": "Components\\Pages\\AllTasks.razor",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-01-06T17:18:23.981Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "Sidebar.razor",
+              "DocumentMoniker": "C:\\Users\\Madina pc\\source\\repos\\BlazorApp1\\Components\\Layout\\Sidebar.razor",
+              "RelativeDocumentMoniker": "Components\\Layout\\Sidebar.razor",
+              "ToolTip": "C:\\Users\\Madina pc\\source\\repos\\BlazorApp1\\Components\\Layout\\Sidebar.razor",
+              "RelativeToolTip": "Components\\Layout\\Sidebar.razor",
+              "ViewState": "AgIAAKEAAAAAAAAAAAAAAKQAAAAeAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-01-06T17:15:35.076Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "MainLayout.razor",
+              "DocumentMoniker": "C:\\Users\\Madina pc\\source\\repos\\BlazorApp1\\Components\\Layout\\MainLayout.razor",
+              "RelativeDocumentMoniker": "Components\\Layout\\MainLayout.razor",
+              "ToolTip": "C:\\Users\\Madina pc\\source\\repos\\BlazorApp1\\Components\\Layout\\MainLayout.razor",
+              "RelativeToolTip": "Components\\Layout\\MainLayout.razor",
+              "ViewState": "AgIAABMAAABAMzMzMzMbwAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-01-06T17:15:30.899Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

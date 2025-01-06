@@ -1,0 +1,165 @@
+﻿@implements IDisposable
+
+@inject NavigationManager NavigationManager
+
+<div class="sidebar bg-gradient-primary text-white d-flex flex-column p-4" id="sidebar" style="height: 100vh; overflow-y: auto;">
+    <h3 class="text-center mb-4 p-3 bg-light rounded d-none d-md-block"
+        style="white-space: nowrap; color: #ebe6fa; -webkit-text-stroke: 1px #654ea3;">
+        Quest-Zenith
+    </h3>
+
+    <ul class="nav flex-column">
+        <li class="nav-item text-center">
+            <NavLink class="nav-link text-white d-flex align-items-center" href="/">
+                <i class="fas fa-home me-2 d-none d-md-inline text-white"></i>
+                <span class="d-none d-md-inline">Home</span>
+                <i class="fas fa-home d-md-none"></i>
+            </NavLink>
+        </li>
+        <li class="nav-item text-center">
+            <NavLink class="nav-link text-white d-flex align-items-center" href="/privacy-policy">
+                <i class="fas fa-shield-alt me-2 d-none d-md-inline"></i>
+                <span class="d-none d-md-inline">Privacy Page</span>
+                <i class="fas fa-edit d-md-none"></i>
+            </NavLink>
+        </li>
+        <AuthorizeView>
+            <Authorized>
+                <li class="nav-item text-center">
+                    <NavLink class="nav-link text-white d-flex align-items-center" href="/add-task">
+                        <i class="fas fa-plus-circle me-2 d-none d-md-inline"></i>
+                        <span class="d-none d-md-inline">Add Task</span>
+                        <i class="fas fa-plus-circle d-md-none"></i>
+                    </NavLink>
+                </li>
+                <li class="nav-item text-center">
+                    <NavLink class="nav-link text-white d-flex align-items-center" href="/complete-task">
+                        <i class="fas fa-check-circle me-2 d-none d-md-inline"></i>
+                        <span class="d-none d-md-inline">Complete Task</span>
+                        <i class="fas fa-check-circle d-md-none"></i>
+                    </NavLink>
+                </li>
+                <li class="nav-item text-center">
+                    <NavLink class="nav-link text-white d-flex align-items-center" href="/incomplete-task">
+                        <i class="fas fa-hourglass-half me-2 d-none d-md-inline"></i>
+                        <span class="d-none d-md-inline">Incomplete Task</span>
+                        <i class="fas fa-check-circle d-md-none"></i>
+                    </NavLink>
+                </li>
+                <li class="nav-item text-center">
+                    <NavLink class="nav-link text-white d-flex align-items-center" href="/search-task">
+                        <i class="fas fa-search me-2 d-none d-md-inline"></i>
+                        <span class="d-none d-md-inline">Search Task</span>
+                        <i class="fas fa-search d-md-none"></i>
+                    </NavLink>
+                </li>
+                <li class="nav-item text-center">
+                    <NavLink class="nav-link text-white d-flex align-items-center" href="/all-tasks">
+                        <i class="fas fa-tasks me-2 d-none d-md-inline"></i>
+                        <span class="d-none d-md-inline">All Tasks</span>
+                        <i class="fas fa-tasks d-md-none"></i>
+                    </NavLink>
+                </li>
+                <li class="nav-item text-center">
+                    <NavLink class="nav-link text-white d-flex align-items-center" href="/update-task">
+                        <i class="fas fa-edit me-2 d-none d-md-inline"></i>
+                        <span class="d-none d-md-inline">Update Task</span>
+                        <i class="fas fa-edit d-md-none"></i>
+                    </NavLink>
+                </li>
+                <div class="nav-item px-3">
+                    <form action="Account/Logout" method="post">
+                        <AntiforgeryToken />
+                        <input type="hidden" name="ReturnUrl" value="@currentUrl" />
+                        <button type="submit" class="nav-link btn btn-link text-white">
+                           Logout
+                        </button>
+                    </form>
+                </div>
+            </Authorized>
+            <NotAuthorized>
+                <div class="nav-item px-3">
+                    <NavLink class="nav-link text-white" href="Account/Register">
+                        Register
+                    </NavLink>
+                </div>
+                <div class="nav-item px-3">
+                    <NavLink class="nav-link text-white" href="Account/Login">
+                        Login
+                    </NavLink>
+                </div>
+            </NotAuthorized>
+        </AuthorizeView>
+    </ul>
+</div>
+
+
+<style>
+    #sidebar {
+        height: 100vh;
+        overflow-y: auto; /* Enable vertical scrolling */
+    }
+
+        /* Custom scrollbar for Webkit-based browsers */
+        #sidebar::-webkit-scrollbar {
+            width: 8px; /* Width of the scrollbar */
+        }
+
+        #sidebar::-webkit-scrollbar-thumb {
+            background: #8562c3; /* Purple scrollbar thumb */
+            border-radius: 4px; /* Rounded scrollbar thumb */
+        }
+
+            #sidebar::-webkit-scrollbar-thumb:hover {
+                background: #8562c3; /* Lighter purple when hovered */
+            }
+
+        #sidebar::-webkit-scrollbar-track {
+            background: #8562c3; /* Light track background */
+            border-radius: 4px; /* Rounded track */
+        }
+
+    /* For Firefox */
+    #sidebar {
+        scrollbar-width: thin; /* Make the scrollbar thinner */
+        scrollbar-color: #654ea3 #f8f9fa; /* Thumb and track colors */
+    }
+
+
+    .nav-link {
+        font-family: 'Arial', sans-serif;
+        font-size: 18px;
+        padding: 12px 20px;
+        border-radius: 5px;
+        transition: background-color 0.3s;
+    }
+
+        .nav-link:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+
+    .nav-item.active .nav-link {
+        background-color: #0056b3;
+    }
+</style>
+@code {
+    private string? currentUrl;
+
+    protected override void OnInitialized()
+    {
+        currentUrl = NavigationManager.ToBaseRelativePath(NavigationManager.Uri);
+        NavigationManager.LocationChanged += OnLocationChanged;
+    }
+
+    private void OnLocationChanged(object? sender, LocationChangedEventArgs e)
+    {
+        currentUrl = NavigationManager.ToBaseRelativePath(e.Location);
+        StateHasChanged();
+    }
+
+    public void Dispose()
+    {
+        NavigationManager.LocationChanged -= OnLocationChanged;
+    }
+}
+@* Am9aSab!r  a29@gmail.com *@

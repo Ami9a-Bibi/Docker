@@ -1,0 +1,83 @@
+﻿@page "/upload-image"
+@inject IWebHostEnvironment WebHostEnvironment
+@inject AuthenticationStateProvider AuthenticationStateProvider
+
+<form @onsubmit="HandleUploadImage" @onsubmit:preventDefault>
+    <div class="mb-3">
+        <label for="fileInput" class="form-label">Select Image</label>
+        <InputFile id="fileInput" class="form-control" OnChange="HandleFileSelected" />
+    </div>
+    <button type="submit" class="btn btn-primary w-100">Upload Image</button>
+</form>
+
+@if (!string.IsNullOrEmpty(SuccessMessage))
+{
+    <div class="alert alert-success mt-3">@SuccessMessage</div>
+}
+@if (!string.IsNullOrEmpty(ErrorMessage))
+{
+    <div class="alert alert-danger mt-3">@ErrorMessage</div>
+}
+
+@code {
+    private IBrowserFile? SelectedFile;
+    private string? SuccessMessage;
+    private string? ErrorMessage;
+
+    private string? CurrentUserEmail;
+
+    protected override async Task OnInitializedAsync()
+    {
+        var authState = await AuthenticationStateProvider.GetAuthenticationStateAsync();
+        var user = authState.User;
+
+        // Directly getting the user's email from the Name property
+        CurrentUserEmail = user.Identity?.Name;
+    }
+
+    private void HandleFileSelected(InputFileChangeEventArgs e)
+    {
+        SelectedFile = e.File;
+        SuccessMessage = null;
+        ErrorMessage = null;
+        Console.WriteLine($"File selected: {SelectedFile?.Name}");
+    }
+
+    private async Task HandleUploadImage()
+    {
+        if (SelectedFile == null)
+        {
+            ErrorMessage = "Please select an image to upload.";
+            return;
+        }
+
+        if (string.IsNullOrEmpty(CurrentUserEmail))
+        {
+            ErrorMessage = "Unable to determine the logged-in user.";
+            return;
+        }
+
+        try
+        {
+            // URL encode the user's email to ensure it is a valid filename
+            string encodedEmail = Uri.EscapeDataString(CurrentUserEmail);
+            string fileExtension = Path.GetExtension(SelectedFile.Name);
+
+            // Save the file with the user's email as the filename
+            string filePath = Path.Combine(WebHostEnvironment.WebRootPath, "Images", $"{encodedEmail}{fileExtension}");
+            Console.WriteLine($"Saving file to: {filePath}");
+
+            await using var fileStream = new FileStream(filePath, FileMode.Create);
+            await SelectedFile.OpenReadStream(maxAllowedSize: 10 * 1024 * 1024).CopyToAsync(fileStream);
+
+            SuccessMessage = "Image uploaded successfully!";
+            ErrorMessage = null;
+        }
+        catch (Exception ex)
+        {
+            ErrorMessage = $"Error uploading image: {ex.Message}";
+            SuccessMessage = null;
+            Console.WriteLine($"Exception: {ex.Message}");
+        }
+    }
+}

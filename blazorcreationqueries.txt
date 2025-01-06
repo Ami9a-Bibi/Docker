@@ -1,0 +1,20 @@
+CREATE TABLE [dbo].[Tasks] (
+    [Id]          INT            IDENTITY (1, 1) NOT NULL,
+    [Name]        NVARCHAR (255) NOT NULL,
+    [Description] NVARCHAR (MAX) NULL,
+    [DueDate]     DATETIME       NOT NULL,
+    [IsCompleted] BIT            DEFAULT ((0)) NOT NULL,
+    [Priority]    NVARCHAR (10)  DEFAULT ('Medium') NOT NULL,
+    [Complexity]  NVARCHAR (10)  DEFAULT ('Medium') NOT NULL,
+    PRIMARY KEY CLUSTERED ([Id] ASC),
+    CONSTRAINT [CHEK_Priority] CHECK ([Priority]='High' OR [Priority]='Medium' OR [Priority]='Low'),
+    CONSTRAINT [CHEK_Complexity] CHECK ([Complexity]='High' OR [Complexity]='Medium' OR [Complexity]='Low')
+);
+
+CREATE TABLE [dbo].[UserTasks] (
+    [EmailAddress] NVARCHAR (255) NOT NULL,
+    [TaskId]       INT            NOT NULL,
+    CONSTRAINT [PK_UserTasks] PRIMARY KEY CLUSTERED ([EmailAddress] ASC, [TaskId] ASC),
+    CONSTRAINT [FK_UserTasks_Tasks] FOREIGN KEY ([TaskId]) REFERENCES [dbo].[Tasks] ([Id]) ON DELETE CASCADE
+);
+

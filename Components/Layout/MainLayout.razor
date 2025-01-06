@@ -1,0 +1,35 @@
+﻿@inherits LayoutComponentBase
+<div class="page d-flex">
+     @if (!ShouldHideSidebar)
+        {
+    <div class="sidebar">
+       
+            <!-- Sidebar -->
+            <Sidebar />
+    </div>
+    }
+
+
+    <main class="main-contenter">
+        <article class="content px-4">
+            @Body
+        </article>
+    </main>
+</div>
+
+@code {
+    private bool ShouldHideSidebar => PagesToHideSidebar.Contains(CurrentPath, StringComparer.OrdinalIgnoreCase);
+
+    private string MainContentClass => ShouldHideSidebar ? "col-12" : "col-12 col-md-10";
+
+    private string CurrentPath => NavigationManager.ToBaseRelativePath(NavigationManager.Uri);
+
+    // List of pages or folders where the sidebar should be hidden
+    private readonly List<string> PagesToHideSidebar = new()
+    {
+        "starter",
+        
+    };
+
+    [Inject] private NavigationManager NavigationManager { get; set; } = default!;
+}

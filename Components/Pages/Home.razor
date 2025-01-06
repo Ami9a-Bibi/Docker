@@ -1,0 +1,86 @@
+﻿@page "/"
+@page "/home"
+@using Microsoft.AspNetCore.SignalR.Client
+@inject NavigationManager Navigation
+@inject HubConnection HubConnection
+@inject AuthenticationStateProvider AuthStateProvider
+
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <!-- Feature Box -->
+        <div class="col-md-6 d-flex align-items-center justify-content-center">
+            <div class="feature-box position-relative">
+                <h1>QuestZenith</h1>
+                <div class="ring ring-1"></div>
+                <div class="ring ring-2"></div>
+                <div class="ring ring-3"></div>
+            </div>
+        </div>
+
+        <!-- About Us Section -->
+        <div class="col-md-6">
+            <div class="about-us bg-light p-4 rounded shadow-lg">
+                <h3 class="text-center text-gradient mb-4">Our Story</h3>
+                <p class="text-muted text-justify" style="line-height: 1.8;">
+                    In the vast digital landscape, a vision took shape - a vision of transforming how we approach productivity and task management. With determination and passion, I set out to bring this vision to life, and thus, <strong>Quest-Zenith</strong> was born.
+                </p>
+                <p class="text-muted text-justify" style="line-height: 1.8;">
+                    Quest-Zenith isn't just a platform; it's your trusted ally in the pursuit of success. With its intuitive tools and unwavering support, you navigate through the challenges and triumphs of both professional and personal endeavors.
+                </p>
+                <p class="text-muted text-justify" style="line-height: 1.8;">
+                    Come join me on this journey as we embark on a quest to unlock our true potential, conquer our goals, and craft our own narrative of achievement. The adventure beckons – are you ready to seize it?
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Notification Message -->
+    @if (!string.IsNullOrEmpty(notificationMessage))
+    {
+        <div class="alert alert-info">
+            @notificationMessage
+        </div>
+    }
+</div>
+
+@code {
+    private string notificationMessage = string.Empty;
+
+    protected override async Task OnInitializedAsync()
+    {
+        try
+        {
+            // Start the SignalR connection
+            await HubConnection.StartAsync();
+            Console.WriteLine("SignalR connection started.");
+
+            // Listen for incoming notifications
+            HubConnection.On<string>("ReceiveNotification", (message) =>
+            {
+                notificationMessage = message;
+                InvokeAsync(StateHasChanged);
+                Console.WriteLine($"Received notification: {message}");
+            });
+
+            // Get user email
+            var authState = await AuthStateProvider.GetAuthenticationStateAsync();
+            var user = authState.User;
+            var userEmail = user.Identity?.Name;
+
+            // Send a notification that the user is on the homepage
+            await HubConnection.SendAsync("NotifyHomePageVisit", userEmail);
+            Console.WriteLine($"Sent notification for user: {userEmail}");
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine($"Error in OnInitializedAsync: {ex.Message}");
+            notificationMessage = "An error occurred while setting up the page.";
+        }
+    }
+
+    public async ValueTask DisposeAsync()
+    {
+        // Stop the connection when the component is disposed
+        await HubConnection.StopAsync();
+    }
+}

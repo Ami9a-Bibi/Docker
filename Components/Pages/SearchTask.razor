@@ -1,0 +1,58 @@
+﻿@page "/search-task"
+@rendermode InteractiveServer
+@using System.ComponentModel.DataAnnotations
+@using BlazorApp1.Models
+@inject BlazorApp1.Data.TaskRepository TaskRepo
+@inject NavigationManager Navigation
+@inject AuthenticationStateProvider AuthStateProvider
+
+<div class="container mt-5">
+    <h3 class="text-center text-gradient mb-4">Search Task</h3>
+
+<div class="input-group mb-3">
+    <input type="text" class="form-control" placeholder="Search by Name or Description" @bind="SearchQuery" />
+    <button class="btn btn-primary" @onclick="HandleSearchTask">Search</button>
+</div>
+    @if (SearchResults.Any())
+    {
+        <ul class="list-group">
+    @foreach (var task in SearchResults)
+    {
+                <li class="list-group-item d-flex justify-content-between align-items-center">@task.Name - @task.Description</li>
+    }
+</ul>
+    }
+    else
+    {
+        <p class="text-center text-muted">No completed tasks yet.</p>
+    }
+</div>
+<style>
+    .text-gradient {
+        color: #fff; /* White text */
+        text-shadow: -1px -1px 0 #00ffff, /* Light cyan */
+        1px -1px 0 #00c8ff, /* Cyan-blue */
+        -1px 1px 0 #6c00ff, /* Purple */
+        1px 1px 0 #FF02FF; /* Magenta */
+    }
+</style>
+@code {
+    private string SearchQuery = string.Empty;
+    private List<TaskItem> SearchResults = new();
+
+    private async Task HandleSearchTask()
+    {
+        var authState = await AuthStateProvider.GetAuthenticationStateAsync();
+        var user = authState.User;
+        var email = user.Identity?.Name;
+
+        if (!string.IsNullOrEmpty(email))
+        {
+            var allTasks = (await TaskRepo.GetTasksByUserAsync(email)).ToList();
+            SearchResults = allTasks
+                .Where(t => t.Name.Contains(SearchQuery, StringComparison.OrdinalIgnoreCase) ||
+                            t.Description.Contains(SearchQuery, StringComparison.OrdinalIgnoreCase))
+                .ToList();
+        }
+    }
+}
